@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF</title>
+</head>
+<body>
+    <h2 style="text-align: center;">Статистика по годам для выбранной профессии и региона</h2>
+    <table style="width:100%; border-collapse: collapse;  text-align: center;">
+        <tr>
+            {% for head in header_1 -%}
+                <th style="border: 1px solid black;">{{ head }}</th>
+            {% endfor %}
+        </tr>
+        {% for year in d_year -%}
+            <tr>
+                {% for head in header_1 -%}
+                    <td style="border: 1px solid black;">{{ d_year[year][head] }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor -%}
+    </table>
+    <h2 style="text-align: center;">Cтатистика по городам</h2>
+    <table style="width:100%; border-collapse: collapse;  text-align: center; horiz-align: center">
+            <tr>
+                {% for head in header_2 -%}
+                    <th style="border: 1px solid black;">{{ head }}</th>
+                {% endfor %}
+            </tr>
+            {% for area in d_area -%}
+                <tr>
+                    {% for head in header_2 -%}
+                        <td style="border: 1px solid black;">{{ d_area[area][head] }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor -%}
+        </table>
+</body>
+</html>
